@@ -10,7 +10,12 @@ public class HomeController {
 
     @GetMapping("/hello")
     public String getHello(@RequestParam(value = "name") String name) {
-        return "<H1>abbHellosjgjhg " + name + "</H1>";
+        return "<H1>Hello 22ss" + name + "</H1>";
+    }
+
+    @GetMapping("/users")
+    public String getUsers() {
+        return "kjkj";
     }
 
 
