@@ -27,7 +27,7 @@ public class HomeController {
         var restTemplate = new RestTemplate();
         var url = URL + id;
         var user = restTemplate.getForObject(url, User.class);
-        return "ljl";
+        return user.toString();
 
 
     }
