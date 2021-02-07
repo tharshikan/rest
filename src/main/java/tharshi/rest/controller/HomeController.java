@@ -1,21 +1,42 @@
 package tharshi.rest.controller;
 
+
+import lombok.val;
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+import tharshi.rest.model.User;
+
+import java.net.URI;
 
 @RestController
 public class HomeController {
+    @Autowired
+    Logger log;
+
+    String URL = "https://api.github.com/user/";
 
     @GetMapping("/hello")
     public String getHello(@RequestParam(value = "name") String name) {
         return "<H1>Hello 22ss" + name + "</H1>";
     }
 
-    @GetMapping("/users")
-    public String getUsers() {
-        return "kjkj";
+    @GetMapping("/user/{id}")
+    public String getUsers(@PathVariable(value = "id") int id) {
+        log.info("kjj");
+        var restTemplate = new RestTemplate();
+        var url = URL + String.valueOf(id);
+        var user = restTemplate.getForObject(url, User.class);
+        log.info("lkjlj");
+        return "ljl";
+
+
     }
 
 
