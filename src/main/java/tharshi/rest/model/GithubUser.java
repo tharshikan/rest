@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Date;
 
 
-public class User {
+public class GithubUser {
     String login;
     int id;
     String node_id;
@@ -40,7 +40,7 @@ public class User {
     Date created_at;
     Date updated_at;
 
-    public User() {
+    public GithubUser() {
     }
 
     public String getLogin() {

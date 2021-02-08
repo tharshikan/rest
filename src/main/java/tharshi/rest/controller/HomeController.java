@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import tharshi.rest.model.User;
+import tharshi.rest.model.GithubUser;
 
 @RestController
 public class HomeController {
@@ -28,7 +28,7 @@ public class HomeController {
         log.info("get users called");
         var restTemplate = new RestTemplate();
         var url = URL + id;
-        var user = restTemplate.getForObject(url, User.class);
+        var user = restTemplate.getForObject(url, GithubUser.class);
         return user.toString();
 
 
