@@ -24,6 +24,7 @@ public class HomeController {
 
     @GetMapping("/user/{id}")
     public String getUsers(@PathVariable(value = "id") int id) {
+        log.info("get users called");
         var restTemplate = new RestTemplate();
         var url = URL + id;
         var user = restTemplate.getForObject(url, User.class);
