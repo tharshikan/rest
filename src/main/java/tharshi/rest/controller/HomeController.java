@@ -19,6 +19,7 @@ public class HomeController {
 
     @GetMapping("/hello")
     public String getHello(@RequestParam(value = "name") String name) {
+        var a = 2;
         return "<H1>Hello 22ss" + name + "</H1>";
     }
 
