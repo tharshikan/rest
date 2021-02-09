@@ -17,10 +17,13 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @PostMapping("/add")
-    public User addProject(@RequestBody User user) {
+    @PostMapping(path="/add")
+    public User addProject(@RequestParam String name, @RequestParam String email) {
         log.info("adding new user");
-        User newUser = userRepository.save(user);
+        User n = new User();
+        n.setName(name);
+        n.setEmail(email);
+        User newUser = userRepository.save(n);
         return newUser;
 
     }
