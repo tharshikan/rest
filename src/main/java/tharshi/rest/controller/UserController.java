@@ -1,5 +1,6 @@
 package tharshi.rest.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,18 +9,17 @@ import tharshi.rest.repository.UserRepository;
 
 import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
-    @Autowired
-    Logger log;
 
     @Autowired
     UserRepository userRepository;
 
     @PostMapping(path="/add")
     public User addProject(@RequestParam String name, @RequestParam String email) {
-        log.info("adding new user");
+        log.info("adding new usersss");
         User n = new User();
         n.setName(name);
         n.setEmail(email);
